@@ -3,7 +3,7 @@
 var angularApp = angular.module('angularApp', ['ngRoute']);
 
 
-function config ($routeProvider, $locationProvider) {
+function config($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl: './partials/home.html',
@@ -39,6 +39,17 @@ var homeController = function HomePageController() {
 
 var registerController = function RegisterPageController() {
     console.log('In Register Page Controller');
+    var self = this;
+
+    self.credentials = {
+        name: "",
+        email: "",
+        password: ""
+    };
+
+    self.onSubmit = function () {
+        console.log('Submitting registration');
+    }
 };
 
 var profileController = function ProfilePageController() {
@@ -47,4 +58,14 @@ var profileController = function ProfilePageController() {
 
 var loginController = function LoginPageController() {
     console.log('In Login Page Controller');
+    var self = this;
+
+    self.credentials = {
+        email: "",
+        password: ""
+    };
+
+    self.onSubmit = function () {
+        console.log('In Login Page, submit..');
+    }
 };
