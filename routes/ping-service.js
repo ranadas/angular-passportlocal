@@ -8,5 +8,5 @@ router.get('/', function(req, res){
     res.status(200).send("ping-pong! I'm alive");
 });
 
-
+require('./route-docu')(router.stack, 'express');
 module.exports = router;
