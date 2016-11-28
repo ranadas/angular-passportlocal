@@ -1,11 +1,13 @@
-var express = require('express');
-var router = express.Router();
-/* 
-* GET ping response ().pong
-* vurl -X GET http://localhost:3000/ping
-*/
+const express = require('express');
+const router = express.Router();
+
+const chalk = require('chalk');
+const log = console.log;
+
+//curl -X GET http://localhost:3000/ping
 router.get('/', function(req, res){
-    res.status(200).send("ping-pong! I'm alive");
+    log(chalk.yellow("\t\tResponding to /ping:"));
+    res.status(200).send("ping-pong! I'm alive dude.");
 });
 
 require('./route-docu')(router.stack, 'express');

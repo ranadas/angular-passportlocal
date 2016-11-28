@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="angularApp">
   <head>
-    <title>plain old htmls</title>
+    <title>plain old htmls with AngularJS </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta author="Rana Das">
@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/landing-page.css">
-
+    <base href="/">
   </head>
-  <body>
+  <body  ng-view>
     <h5>This is wip</h5>
 
     <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -19,6 +19,7 @@
 
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
 
     <script src="/javascripts/ang-app.js"></script>
   </body>
