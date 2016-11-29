@@ -1,6 +1,6 @@
 'use strict';
 //var angularApp = angular.module('angularApp', ['ui.router']);
-var angularApp = angular.module('angularApp', ['ngRoute']);
+var angularApp = angular.module('angularApp', ['ngRoute', 'contactsModule']);
 
 
 function config($routeProvider, $locationProvider) {
@@ -32,40 +32,3 @@ function config($routeProvider, $locationProvider) {
 }
 
 angularApp.config(['$routeProvider', '$locationProvider', config]);
-
-var homeController = function HomePageController() {
-    console.log('In Home Page Controller');
-};
-
-var registerController = function RegisterPageController() {
-    console.log('In Register Page Controller');
-    var self = this;
-
-    self.credentials = {
-        name: "",
-        email: "",
-        password: ""
-    };
-
-    self.onSubmit = function () {
-        console.log('Submitting registration');
-    }
-};
-
-var profileController = function ProfilePageController() {
-    console.log('In Profile Page Controller');
-};
-
-var loginController = function LoginPageController() {
-    console.log('In Login Page Controller');
-    var self = this;
-
-    self.credentials = {
-        email: "",
-        password: ""
-    };
-
-    self.onSubmit = function () {
-        console.log('In Login Page, submit..');
-    }
-};
