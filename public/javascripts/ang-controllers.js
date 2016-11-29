@@ -3,7 +3,7 @@ var homeController = function HomePageController() {
     console.log('In Home Page Controller');
 };
 
-var registerController = function RegisterPageController() {
+var registerController = function RegisterPageController(contactsService) {
     console.log('In Register Page Controller');
     var self = this;
 
@@ -14,7 +14,8 @@ var registerController = function RegisterPageController() {
     };
 
     self.onSubmit = function () {
-        console.log('Submitting registration');
+        console.log('Registering  with '+JSON.stringify(self.credentials));
+        contactsService.register(self.credentials);
     }
 };
 

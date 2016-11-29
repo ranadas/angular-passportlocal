@@ -65,3 +65,6 @@ also read: https://blog.risingstack.com/node-hero-node-js-authentication-passpor
 
 
 TODO : CONVERT THIS TO TYPESCRIPT http://brianflove.com/2016/03/29/typescript-express-node-js/
+
+https://www.sitepoint.com/user-authentication-mean-stack/
+https://github.com/sitepoint-editors/MEAN-stack-authentication
