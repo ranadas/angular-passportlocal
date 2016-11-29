@@ -68,3 +68,5 @@ TODO : CONVERT THIS TO TYPESCRIPT http://brianflove.com/2016/03/29/typescript-ex
 
 https://www.sitepoint.com/user-authentication-mean-stack/
 https://github.com/sitepoint-editors/MEAN-stack-authentication
+
+https://www.matthewtyler.io/handling-oauth2-with-node-js-and-angular-js-passport-to-the-rescue/
