@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const log = console.log;
 
 router.post('/register', function (req, res) {
-    log(chalk.green("POSTing to register:") + chalk.red(req.body));
+    log(chalk.green("POSTing to register:") + chalk.red(JSON.stringify(req.body)));
     res.status(200).json({"message" : "User registered: " + req.body});
 });
 
