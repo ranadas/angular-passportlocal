@@ -70,3 +70,11 @@ https://www.sitepoint.com/user-authentication-mean-stack/
 https://github.com/sitepoint-editors/MEAN-stack-authentication
 
 https://www.matthewtyler.io/handling-oauth2-with-node-js-and-angular-js-passport-to-the-rescue/
+
+https://devdactic.com/restful-api-user-authentication-1/
+http://devdactic.com/restful-api-user-authentication-2/
+
+node_modules\.bin\nodemon.cmd .\bin\www
+
+
+find . -print | grep -v .git | grep -v node_modules | grep -v bower_components

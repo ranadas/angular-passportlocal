@@ -14,7 +14,7 @@ mongoose.connect(dbURI);
 
 // CONNECTION EVENTS
 mongoose.connection.on('connected', function () {
-    log(chalk.green("Mongoose connected to :") + chalk.red.bgCyan.underline(dbURI));
+    log(chalk.green("Mongoose connected to : ") + chalk.red.bold.underline(dbURI));
 });
 
 mongoose.connection.on('error', function (err) {
