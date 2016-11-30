@@ -6,8 +6,18 @@
 
 <div class="container">
 
-    <h2>Hello there</h2>
+    <div ng-show="vm.userLoggedIn">
+        <h2>Logged In.</h2>
+    </div>
 
-    <p>Please <a href="login">sign in</a> or <a href="register">register</a>?</p>
+    <!-- show if our function evaluates to false -->
+    <div ng-show="!vm.userLoggedIn">
+        <h2>NOT Logged In.</h2>
+
+        <h2>Hello there</h2>
+
+        <p>Please <a href="login">sign in</a> or <a href="register">register</a>?</p>
+
+    </div>
 
 </div>

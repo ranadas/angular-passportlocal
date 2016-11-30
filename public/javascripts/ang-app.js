@@ -39,4 +39,6 @@
 
     angularApp.config(['$routeProvider', '$locationProvider', config]);
 
+    angularApp.controller('menuController', menuController);
+
 })();
