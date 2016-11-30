@@ -8,6 +8,9 @@ var app = require('../app');
 var debug = require('debug')('passport-local-express4:server');
 var http = require('http');
 
+const chalk           = require('chalk');
+const log = console.log;
+
 /**
  * Get port from environment and store in Express.
  */
@@ -88,3 +91,7 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+log(chalk.red.bgYellow("\nApplication Run MODE : "+ app.get('env')));
+log(chalk.green('\nApplication listening on port: ') + chalk.red.bgCyan.underline(port) + "\n");
