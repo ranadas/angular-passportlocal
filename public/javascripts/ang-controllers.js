@@ -51,3 +51,8 @@ var loginController = function LoginPageController($location, contactsService) {
     }
 };
 loginController.$inject = ['$location', 'contactsService'];
+
+
+var downloadController = function DownloadPageController() {
+    console.log('In Downloads Page Controller');
+};

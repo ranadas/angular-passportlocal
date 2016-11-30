@@ -26,6 +26,11 @@
                 controller: profileController,
                 controllerAs: 'vm'
             })
+            .when('/download', {
+                templateUrl: 'partials/downloads.html',
+                controller: downloadController,
+                controllerAs: 'vm'
+            })
             .otherwise({redirectTo: '/'});
 
         // use the HTML5 History API
