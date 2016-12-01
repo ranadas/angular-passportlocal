@@ -21,3 +21,4 @@ report
 
 app/dist/*.js
 app/dist/*.map
+LOCALS_ONLY/

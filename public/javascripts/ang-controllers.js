@@ -1,8 +1,11 @@
 'use strict';
 /** 1. Handler for Home page*/
-var homeController = function HomePageController($location, contactsService) {
+var homeController = function HomePageController($location, contactsService, $rootScope) {
     console.log('In Home Page Controller');
     var self = this;
+    self.userLoggedIn = contactsService.isLoggedIn();
+    $rootScope.menu_list = contactsService.menuList(self.userLoggedIn);
+
     if (contactsService.isLoggedIn()) {
         self.userLoggedIn = true;
         self.loggedUserDetails = contactsService.currentUser();
@@ -10,10 +13,10 @@ var homeController = function HomePageController($location, contactsService) {
         self.userLoggedIn = false;
     }
 };
-homeController.$inject = ['$location', 'contactsService'];
+homeController.$inject = ['$location', 'contactsService', '$rootScope'];
 
 /** 2. Handler for Register User page followed by module injects*/
-var registerController = function RegisterPageController($location, contactsService) {
+var registerController = function RegisterPageController($location, contactsService, $rootScope) {
     console.log('In Register Page Controller');
     var self = this;
 
@@ -22,6 +25,9 @@ var registerController = function RegisterPageController($location, contactsServ
         email: "",
         password: ""
     };
+
+    self.userLoggedIn = contactsService.isLoggedIn();
+    $rootScope.menu_list = contactsService.menuList(self.userLoggedIn);
 
     self.onSubmit = function () {
         console.log('Registering  with ' + JSON.stringify(self.credentials));
@@ -34,7 +40,7 @@ var registerController = function RegisterPageController($location, contactsServ
             });
     }
 };
-registerController.$inject = ['$location', 'contactsService'];
+registerController.$inject = ['$location', 'contactsService', '$rootScope'];
 
 /** 3. Handler for User profile page*/
 var profileController = function ProfilePageController() {
@@ -42,7 +48,7 @@ var profileController = function ProfilePageController() {
 };
 
 /** 4. Handler for Login page followed by module injects*/
-var loginController = function LoginPageController($location, contactsService) {
+var loginController = function LoginPageController($location, contactsService, $rootScope) {
     console.log('In Login Page Controller');
     var self = this;
 
@@ -50,6 +56,9 @@ var loginController = function LoginPageController($location, contactsService) {
         email: "",
         password: ""
     };
+
+    self.userLoggedIn = contactsService.isLoggedIn();
+    $rootScope.menu_list = contactsService.menuList(self.userLoggedIn);
 
     self.onSubmit = function () {
         console.log('In Login Page, submit..');
@@ -59,11 +68,13 @@ var loginController = function LoginPageController($location, contactsService) {
             })
             .then(function(){
                 //$location.path('profile');
+                //$rootScope.menu_list = ['home', 'logout', 'download', 'profile'];
+                $rootScope.menu_list = contactsService.menuList(true);
                 $location.path('/');
             });
     }
 };
-loginController.$inject = ['$location', 'contactsService'];
+loginController.$inject = ['$location', 'contactsService', '$rootScope'];
 
 /** 5. Handler for Downloads page*/
 var downloadController = function DownloadPageController() {
@@ -71,9 +82,11 @@ var downloadController = function DownloadPageController() {
 };
 
 /** 4. Handler for Menu Links followed by module injects*/
-var menuController = function ($location, contactsService) {
+var menuController = function ($location, contactsService, $rootScope) {
     console.log('In Menu Controller');
     var self = this;
+    console.log($rootScope.menu_list);
+    //self.menu_list = $rootScope.test;
     self.userLoggedIn;
 
     self.isUserLogged = function(){
@@ -81,12 +94,15 @@ var menuController = function ($location, contactsService) {
     };
 
     self.userLoggedIn = contactsService.isLoggedIn();
+    $rootScope.menu_list = contactsService.menuList(self.userLoggedIn);
 
     self.clickLogout = function() {
         if (self.userLoggedIn) {
             //console.log('tkn is ' + contactsService.getToken());
             console.log('Loggin Out so');
             contactsService.logout();
+            //$rootScope.menu_list = ['home', 'login', 'logout', 'register'];
+            $rootScope.menu_list = contactsService.menuList(false);
             $location.path('/');
         }
         else {
@@ -94,4 +110,4 @@ var menuController = function ($location, contactsService) {
         }
     }
 };
-menuController.$inject = ['$location', 'contactsService'];
+menuController.$inject = ['$location', 'contactsService', '$rootScope'];

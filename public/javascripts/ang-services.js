@@ -16,6 +16,7 @@ function ContactService($http, $window) {
     service.register = register;
     service.login = login;
     service.logout = logout;
+    service.menuList = MenuList;
 
     function saveToken(token) {
         $window.localStorage['mean-token'] = token;
@@ -80,6 +81,92 @@ function ContactService($http, $window) {
     //        });
     //
     //}
+
+    /*
+     [
+     {
+     "id":"0",
+     "href":"/",
+     "display":"Home"
+     },
+     {
+     "id":"1",
+     "href":"login",
+     "display":"Login"
+     },
+     {
+     "id":"2",
+     "href":"register",
+     "display":"register"
+     },
+     {
+     "id":"3",
+     "href":"download",
+     "display":"Download"
+     },
+     {
+     "id":"4",
+     "href":"download",
+     "display":"Download"
+     },
+     {
+     "id":"5",
+     "href":"profile",
+     "display":"Profile"
+     },
+     {
+     "id":"6",
+     "href":"#",
+     "display":"Logout"
+     }
+     ]
+     */
+    function MenuList(authenticated) {
+        if (authenticated) {
+            var menu_list = [
+                {
+                    "id": "0",
+                    "href": "/",
+                    "display": "Home"
+                },
+                {
+                    "id": "1",
+                    "href": "download",
+                    "display": "Download"
+                },
+                {
+                    "id": "2",
+                    "href": "profile",
+                    "display": "Profile"
+                },
+                {
+                    "id": "3",
+                    "href": "#",
+                    "display": "Logout"
+                }
+            ];
+            return menu_list;
+        } else {
+            var menu_list = [
+                {
+                    "id": "0",
+                    "href": "/",
+                    "display": "Home"
+                },
+                {
+                    "id": "1",
+                    "href": "login",
+                    "display": "Login"
+                },
+                {
+                    "id": "2",
+                    "href": "register",
+                    "display": "Register"
+                }
+            ];
+            return menu_list;
+        }
+    }
 
     // private functions
     function handleSuccess(res) {

@@ -10,26 +10,50 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/landing-page.css">
     <base href="/">
+
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
 </head>
-<body>
+<body ng-cloak class="ng-cloak">
 
 <div ng-controller="menuController as menuCtrl">
-    <!-- NAVIGATION -->
 
-    <div ng-show='menuCtrl.userLoggedIn'>
-        loggid In user details {{menuCtrl.loggedUserDetails}}
-    </div>
-    <nav class="navbar navbar-inverse" role="navigation">
-        <ul class="nav navbar-nav">
-            <li><a ng-href="/">Home</a></li>
-            <li><a> </a></li>
-            <li><a ng-href="login" ng-show='!menuCtrl.userLoggedIn'>LogIn</a></li>
-            <li><a ng-href="register" ng-show='!menuCtrl.userLoggedIn'>Register</a></li>
-            <li><a ng-href="download" ng-show='menuCtrl.userLoggedIn'>Downloads</a></li>
-            <li><a ng-href="profile" ng-show='menuCtrl.userLoggedIn'>Profile</a></li>
-            <li><a ng-href="#" ng-click='menuCtrl.clickLogout()' ng-show='menuCtrl.userLoggedIn'> Logout</a></li>
-        </ul>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+
+                <div ng-repeat="item in $root.menu_list" ng-switch on="item.display">
+                    <div ng-switch-when='Logout'>
+                        <li>
+                            *<a ng-href="{{item.href}}" ng-click='menuCtrl.clickLogout()' >{{item.display}}</a>
+                        </li>
+                    </div>
+                    <div ng-switch-default>
+                        <li><a ng-href="{{item.href}}">{{item.display}}</a></li>
+                    </div>
+                </div>
+            </ul>
+        </div>
     </nav>
+    <!-- NAVIGATION -->
+    <!--
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a ng-href="/">Home</a></li>
+                <li><a> </a></li>
+                <li><a ng-href="login" ng-show='!menuCtrl.userLoggedIn'>LogIn</a></li>
+                <li><a ng-href="register" ng-show='!menuCtrl.userLoggedIn'>Register</a></li>
+                <li><a ng-href="download" ng-show='menuCtrl.userLoggedIn'>Downloads</a></li>
+                <li><a ng-href="profile" ng-show='menuCtrl.userLoggedIn'>Profile</a></li>
+                <li><a ng-href="#" ng-click='menuCtrl.clickLogout()' ng-show='menuCtrl.userLoggedIn'> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    -->
 </div>
 <!-- MAIN AREA -->
 <div ng-view>
