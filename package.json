@@ -6,10 +6,12 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "test": "mocha -R list"
+    "test": "mocha -R list",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
+    "bower": "^1.8.0",
     "chai": "^3.5.0",
     "chalk": "^1.1.3",
     "cli-table": "^0.3.1",
