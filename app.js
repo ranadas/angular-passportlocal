@@ -37,6 +37,7 @@ app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'public')));
 //app.set('htmls', path.join(__dirname, 'public/htmls'));
 app.use('htmls', express.static(path.join(__dirname, 'htmls')));
+app.use(express.static(__dirname + 'public'));
 
  app.get('/', function(req, res) {
      res.sendfile('./htmls/index.html');
