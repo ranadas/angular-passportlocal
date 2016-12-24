@@ -3,7 +3,7 @@
 //var angularApp = angular.module('angularApp', ['ui.router']);
     var angularApp = angular.module('angularApp', ['ngRoute', 'contactsModule'])
         .run(['$rootScope', function ($rootScope) {
-            //$rootScope.menu_list = [];
+            $rootScope.menu_list = [];
     }]);
 
 
