@@ -55,9 +55,25 @@ function ContactService($http, $window) {
     };
 
     function register(user) {
-        return $http.post('/api/register', user).success(function (data) {
-            saveToken(data.token);
+        return $http({
+            method: 'POST',
+            url: '/api/register',
+            data: user
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            saveToken(response.token);
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
         });
+
+        /*
+        return $http.post('/api/register', user)
+            .success(function (data) {
+                saveToken(data.token);
+        });
+        */
     };
 
     function login(user) {
