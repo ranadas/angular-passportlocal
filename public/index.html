@@ -25,14 +25,14 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
 
-                <div ng-repeat="item in $root.menu_list" ng-switch on="item.display">
+                <div ng-repeat="item in $root.menu_list" ng-switch on="item.display" class="nav navbar-nav">
                     <div ng-switch-when='Logout'>
-                        <li>
+                        <li class="nav navbar-nav">
                             *<a ng-href="{{item.href}}" ng-click='menuCtrl.clickLogout()' >{{item.display}}</a>
                         </li>
                     </div>
                     <div ng-switch-default>
-                        <li><a ng-href="{{item.href}}">{{item.display}}</a></li>
+                        <li class="nav navbar-nav"><a ng-href="{{item.href}}">{{item.display}}     &nbsp;</a></li>
                     </div>
                 </div>
             </ul>

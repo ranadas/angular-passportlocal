@@ -107,6 +107,8 @@ var menuController = function ($location, contactsService, $rootScope) {
         }
         else {
             console.log('ALREADY Logged Out ');
+            $rootScope.menu_list = contactsService.menuList(false);
+            $location.path('/');
         }
     }
 };

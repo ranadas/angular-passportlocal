@@ -31,9 +31,8 @@ app.use(require('express-session')({
 
 // view engine setup
 app.engine('html', cons.swig);
-//app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
-
+app.set('views', path.join(__dirname, 'public'));
 app.use(express.static(path.join(__dirname, 'public')));
 //app.set('htmls', path.join(__dirname, 'public/htmls'));
 app.use('htmls', express.static(path.join(__dirname, 'htmls')));
