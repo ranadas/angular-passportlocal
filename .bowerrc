@@ -1,5 +1,5 @@
 {
   "strict-ssl": false,
-  "directory":"bower_components",
+  "directory":"public/bower_components",
   "json":"bower.json"
 }
