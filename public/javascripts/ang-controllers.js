@@ -32,9 +32,6 @@ var registerController = function RegisterPageController($location, contactsServ
     self.onSubmit = function () {
         console.log('Registering  with ' + JSON.stringify(self.credentials));
         contactsService.register(self.credentials)
-            .error(function (err) {
-                alert(err);
-            })
             .then(function () {
                 $location.path('profile');
             });
@@ -63,14 +60,11 @@ var loginController = function LoginPageController($location, contactsService, $
     self.onSubmit = function () {
         console.log('In Login Page, submit..');
         contactsService.login(self.credentials)
-            .error(function(err){
-                alert(JSON.stringify(err));
-            })
             .then(function(){
                 //$location.path('profile');
                 //$rootScope.menu_list = ['home', 'logout', 'download', 'profile'];
                 $rootScope.menu_list = contactsService.menuList(true);
-                $location.path('/');
+                $location.path('profile');
             });
     }
 };
