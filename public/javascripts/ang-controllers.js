@@ -40,9 +40,17 @@ var registerController = function RegisterPageController($location, contactsServ
 registerController.$inject = ['$location', 'contactsService', '$rootScope'];
 
 /** 3. Handler for User profile page*/
-var profileController = function ProfilePageController() {
+var profileController = function ProfilePageController(contactsService) {
     console.log('In Profile Page Controller');
+    var self = this;
+    self.user = {
+        email: ""
+    };
+    var cUser = contactsService.currentUser();
+    self.user.email = cUser.email;
+
 };
+profileController.$inject = ['contactsService'];
 
 /** 4. Handler for Login page followed by module injects*/
 var loginController = function LoginPageController($location, contactsService, $rootScope) {
