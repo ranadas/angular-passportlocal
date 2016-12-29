@@ -54,9 +54,23 @@ router.post('/login', function (req, res) {
         }
     })(req, res);
 });
-router.get('/profile/USERID', function (req, res) {
-    log(chalk.green("GETing to get profile:") + chalk.red(req.body));
-    res.status(200).json("WIP");
+
+router.get('/profile/:email', function (req, res) {
+    var email = req.params.email;
+    log(chalk.green("GETing to get profile:") + chalk.red(req.body) + '\t with : email ' + email);
+    User.find({"email": email},
+        function (err, people) {
+            if (err) {
+                res.status(500).send(err)
+            } else {
+                // send the list of all people in database with name of "John James" and age of 36
+                // Very possible this will be an array with just one Person object in it.
+                //res.send(people);
+                res.status(200).json(people);
+            }
+        });
+
+    //res.status(200).json("WIP");
 });
 
 require('./route-docu')(router.stack, 'express');

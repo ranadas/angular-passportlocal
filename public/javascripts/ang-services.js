@@ -17,6 +17,7 @@ function ContactService($http, $window) {
     service.login = login;
     service.logout = logout;
     service.menuList = MenuList;
+    service.profile = profile;
 
     function saveToken(token) {
         $window.localStorage['mean-token'] = token;
@@ -72,6 +73,10 @@ function ContactService($http, $window) {
 
     function logout() {
         $window.localStorage.removeItem('mean-token');
+    };
+
+    function profile(userEmail) {
+        return $http.get('/api/profile/'+ userEmail);
     };
 
     //function regist(user) {

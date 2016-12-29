@@ -48,6 +48,14 @@ var profileController = function ProfilePageController(contactsService) {
     };
     var cUser = contactsService.currentUser();
     self.user.email = cUser.email;
+    contactsService.profile(cUser.email)
+        .success(function (data, status, headers, config) {
+            console.log(data.data);
+            self.user.name = data[0].name;
+        })
+        .error(function (data, status, header, config) {
+            console.log(data.data);
+        });
 
 };
 profileController.$inject = ['contactsService'];
