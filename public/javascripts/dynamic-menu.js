@@ -1,5 +1,6 @@
 'use strict';
-
+//http://lvasquez.github.io/2015/02/22/AngularJs-ExpressJs-Project/
+https://github.com/sirajc/dynamic-menu
 var dynamicMenuVariable = angular.module('dynamicMenu', []);
 
 
