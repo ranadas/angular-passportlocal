@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 //var angularApp = angular.module('angularApp', ['ui.router']);
-    var angularApp = angular.module('angularApp', ['ngRoute', 'contactsModule'])
+    var angularApp = angular.module('angularApp', ['ngRoute', 'contactsModule', 'dynamicMenu'])
         .run(['$rootScope', function ($rootScope) {
             $rootScope.menu_list = [];
     }]);
