@@ -85,6 +85,17 @@ loginController.$inject = ['$location', 'contactsService', '$rootScope'];
 /** 5. Handler for Downloads page*/
 var downloadController = function DownloadPageController() {
     console.log('In Downloads Page Controller');
+    var self = this;
+
+    self.onSuccess = function(data) {
+        console.log(data);
+    };
+    self.onError = function(error) {
+        console.log(error);
+    };
+    self.onVideoError = function(error) {
+        console.log(error);
+    };
 };
 
 /** 4. Handler for Menu Links followed by module injects*/

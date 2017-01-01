@@ -6,5 +6,10 @@
             <h1 class="form-signin-heading">Available Downloads</h1>
         </div>
 
+        <p><label>Data:</label> {{vm.data}}</p>
+        <p><label>Error:</label> {{vm.error}}</p>
+        <qr-scanner width="400" height="300" ng-success="vm.onSuccess(data)" ng-error="vm.mmonError(error)" />
+
+
     </div>
 </div>
